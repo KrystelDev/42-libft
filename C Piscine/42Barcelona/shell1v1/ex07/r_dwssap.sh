@@ -1,0 +1,2 @@
+#!\bin\bash
+cat /etc/passwd | grep -v '^#' | sed -n 'n;P' | rev | grep -o '[^:]*$' | sort -r | awk -v | lineone="$FT_LINE1" -v line_two="$FT_LINE2" 'NR==line_one,NR==line_two' | paste -sd ',' - | sed 's/,/, /g' | tr -d '\n'
