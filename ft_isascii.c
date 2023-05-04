@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kryrodri <kryrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 00:44:19 by kryrodri          #+#    #+#             */
-/*   Updated: 2023/05/04 17:55:54 by kryrodri         ###   ########.fr       */
+/*   Created: 2023/05/04 17:22:05 by kryrodri          #+#    #+#             */
+/*   Updated: 2023/05/04 17:43:55 by kryrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <unistd.h>
-#include <stdio.h>
-
-size_t ft_strlen(const char *s)
+int ft_isascii(int c)
 {
-	size_t	count;
-
-	count = 0;
-	while (s[count] != '\0')
-	{
-		count++;
-	}
-	return (count);
+    if (c < 0 || c > 127)
+    {
+        return (0);
+    }
+    return (1);
 }
+// #include <stdio.h>
 // int main(void)
 // {
-//     const char *str;
-//     str = "cadena cadena cadena";
+//     int my_is_alpha;
 
-// 	ft_strlen(str);
+//     my_is_alpha = '#';
+
+//     printf ("MAIN -- Original: ");
+//     printf("%d\n", ft_isascii(my_is_alpha));
+//     printf ("MAIN -- FTcopy: ");
+//     printf("%d\n", ft_isascii(my_is_alpha));
 // }
