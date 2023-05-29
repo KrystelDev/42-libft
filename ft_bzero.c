@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kryrodri <kryrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/04 14:29:43 by kryrodri          #+#    #+#             */
-/*   Updated: 2023/05/15 12:12:59 by kryrodri         ###   ########.fr       */
+/*   Created: 2023/05/05 15:48:09 by kryrodri          #+#    #+#             */
+/*   Updated: 2023/05/05 15:58:57 by kryrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+void	ft_bzero(void *s, size_t n)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (1);
-	return (0);
-}
+	char	*str;
+	size_t	i;
 
-// #include "ft_isalpha.c"
-// #include "ft_isdigit.c"
-// int	ft_isalnum(int c )
-// {
-// 	if ((c < '0' || c > '9') && ((c < 'A' || c > 'Z') && (c < 'a' || c > 'z')))
-// 		return (0);
-// 	return (1);
-// }
-// #include <stdio.h>
-// int main(void)
-// {
-// 	printf("a: %d", ft_isalnum('a'));
-// 	return (0);
-// }
+	str = (char *)s;
+	i = 0;
+	while (i < n)
+	{
+		str[i] = '\0';
+		i++;
+	}
+	return ;
+}

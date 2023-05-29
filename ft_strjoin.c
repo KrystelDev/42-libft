@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kryrodri <kryrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/04 14:29:43 by kryrodri          #+#    #+#             */
-/*   Updated: 2023/05/15 12:12:59 by kryrodri         ###   ########.fr       */
+/*   Created: 2023/05/19 12:51:45 by kryrodri          #+#    #+#             */
+/*   Updated: 2023/05/19 13:25:29 by kryrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (1);
-	return (0);
-}
+	char	*new_string;
 
-// #include "ft_isalpha.c"
-// #include "ft_isdigit.c"
-// int	ft_isalnum(int c )
-// {
-// 	if ((c < '0' || c > '9') && ((c < 'A' || c > 'Z') && (c < 'a' || c > 'z')))
-// 		return (0);
-// 	return (1);
-// }
-// #include <stdio.h>
-// int main(void)
-// {
-// 	printf("a: %d", ft_isalnum('a'));
-// 	return (0);
-// }
+	new_string = ft_calloc(ft_strlen(s1) + ft_strlen(s2) + 1, sizeof(char));
+	if (new_string == NULL)
+		return (NULL);
+	ft_strlcat(new_string, s1, ft_strlen(s1) + 1);
+	ft_strlcat(new_string, s2, ft_strlen(s1) + ft_strlen(s2) + 1);
+	return (new_string);
+}

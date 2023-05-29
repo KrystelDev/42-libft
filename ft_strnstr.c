@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kryrodri <kryrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/04 14:29:43 by kryrodri          #+#    #+#             */
-/*   Updated: 2023/05/15 12:12:59 by kryrodri         ###   ########.fr       */
+/*   Created: 2023/05/17 12:28:13 by kryrodri          #+#    #+#             */
+/*   Updated: 2023/05/19 13:51:50 by kryrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (1);
+	size_t	n_to_find;
+	size_t	i;
+	size_t	j;
+
+	n_to_find = ft_strlen(s2);
+	i = 0;
+	j = 0;
+	if (*s2 == '\0')
+		return ((char *)s1);
+	while (s1[i] && i < n)
+	{
+		while (i + j < n && s1[i + j] && s2[j] && s1[i + j] == s2[j])
+		{
+			j++;
+		}
+		if (j == n_to_find)
+			return ((char *)s1 + i);
+		j = 0;
+		i++;
+	}
 	return (0);
 }
-
-// #include "ft_isalpha.c"
-// #include "ft_isdigit.c"
-// int	ft_isalnum(int c )
-// {
-// 	if ((c < '0' || c > '9') && ((c < 'A' || c > 'Z') && (c < 'a' || c > 'z')))
-// 		return (0);
-// 	return (1);
-// }
-// #include <stdio.h>
-// int main(void)
-// {
-// 	printf("a: %d", ft_isalnum('a'));
-// 	return (0);
-// }

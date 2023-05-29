@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: kryrodri <kryrodri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 11:09:46 by kryrodri          #+#    #+#              #
-#    Updated: 2023/05/04 17:48:35 by kryrodri         ###   ########.fr        #
+#    Updated: 2023/05/26 20:03:24 by kryrodri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,17 @@ FLAGS = -Wall -Wextra -Werror
 NAME	= libft.a
 
 # Archivos que uso al compilar
-FUNCTION	=  ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c  ft_isprint.c ft_strncmp.c  ft_strlen.c
-# ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_atoi.c ft_calloc.c ft_drup.c
+FUNCTION	=  ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c  ft_isprint.c \
+				ft_strlen.c ft_memset.c ft_bzero.c  ft_memcpy.c  ft_memmove.c \
+				ft_strncmp.c ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c \
+				ft_strchr.c ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c \
+				ft_strnstr.c ft_strdup.c ft_calloc.c ft_atoi.c ft_substr.c ft_strjoin.c \
+				ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c\
+				ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
+				
 
 # Tenemos que transformar los .c en .o para poder compilar
 OBJS	= $(FUNCTION:.c=.o)
-
-# Declaracion de las funciones para que sepan a que llamamos al usar la funcion.
-HEADER	= libft.h
 
 # Se compila el archivo binario (ejecutable).
 all: ${NAME}
@@ -34,16 +37,19 @@ all: ${NAME}
 # 	@echo "ejecutando ${NAME}"
 # 	$(CC) $(FLAGS) main.c ${OBJS} -o ${NAME}
 
-# Si no tuvieramos main.c usariamos el ar -rcs en su lugar.
-${NAME}: ${OBJS} ${HEADER}
+# Si no tuvieramos main.c usariamos el ar rcs en su lugar.
+${NAME}: ${OBJS}
 	@echo "Generando la libreria ${NAME}..."
-	ar -rcs $(NAME) ${OBJS}
+	ar rcs $(NAME) ${OBJS}
 
 # Mirar google TODO
-%.o: %.c $(HEADER)
+%.o: %.c
 	@echo "Compilando el objeto $@..."
 	$(CC) -c $(FLAGS) $< -o $@
-#	gcc -c -Wall -Wextra -Werror ????
+#	gcc -c -Wall -Wextra -Werror ...
+# $@  = (todos los .o)
+# $< = (Todos los inputs, seria todos los .c y su header (.h))
+# -c es para convertir los .c en .o (.o = objetos, listos para usar)
 
 # -f es para decir que si no existen ignoralos (evitando avisos como de errores innecesarios.)
 clean:

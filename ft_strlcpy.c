@@ -6,55 +6,52 @@
 /*   By: kryrodri <kryrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 02:07:20 by kryrodri          #+#    #+#             */
-/*   Updated: 2023/05/04 18:32:25 by kryrodri         ###   ########.fr       */
+/*   Updated: 2023/05/15 14:40:37 by kryrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
-{
-	unsigned int	i;
+#include "libft.h"
+// #include "ft_strlen.c"
 
-	i = 0;
-	if (size > 0)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t	i;
+
+	i = -1;
+	if (dstsize > 0)
 	{
-		while (i < (size - 1) && src[i] != '\0')
+		if (dstsize > ft_strlen(src))
 		{
-			dest[i] = src[i];
-			i++;
+			while (src[++i] != '\0')
+				dst[i] = src[i];
+			dst[i] = '\0';
 		}
-		dest[i] = '\0';
+		else
+		{
+			while (++i < (dstsize - 1))
+				dst[i] = src[i];
+			dst[i] = '\0';
+		}
 	}
-	while (src[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
+	return (ft_strlen(src));
 }
-// #include <stdlib.h>
-// #include <string.h>
+
+/*
+25 si tenemos mas espacio de tamanno de src
+31 copia hasta dstsize-1, y al final siempre un null
+36 siempre devuelve la grandaria de src
+*/
 // #include <stdio.h>
+// #include <string.h>
 // int main(void)
 // {
-//     char ropa[20] = "Calcetines";
-//     char prenda[20];
-//     prenda[0] = '\0';
-//     unsigned int strlcpy;
-//     printf("MAIN- ANTES DE STRLCPY\n");
-//     printf("Cadena original: %s \n", ropa);
-//     // Se copia la cadena "ropa" en "prenda"
-//     strlcpy = strlcpy(prenda, ropa, 10);
-//     printf("MAIN-  DESPUES DE STRLCPY\n");
-//     printf("Cadena copiada con strlcpy: %s \n", prenda);
-//     printf("Numero de strlcpy: %d \n", strlcpy);
-//     char src[20] = "Calcetines";
-//     char dest[20];
-//     dest[0] = '\0';
-//     printf("MAIN- ANTES DE FT_STRLCPY\n");
-//     printf("Cadena original: %s \n", src);
-//     // Se copia la cadena "src" en "dest"
-//     strlcpy = ft_strlcpy(dest, src, 10);
-//     printf("MAIN- DESPUES DE FT_STRLCPY\n");
-//     printf("Cadena copiada con ft_strlcpy: %s \n", dest);
-//     printf("Numero de strlcpy: %d \n", strlcpy);
-//     return (0);
+// 	char	dest[10];
+// 	const char	src[] = "hola\0";
+// 	char	dest2[10];
+// 	const char	src2[] = "hola\0";
+// 	size_t	n = 0;
+// 	printf("recplica: %zu\n", ft_strlcpy(dest, src, n));
+// 	printf("recplica: %s\n", dest);
+// 	printf("original: %zu\n", strlcpy(dest2, src2, n));
+// 	printf("original: %s\n", dest2);
 // }

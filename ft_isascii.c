@@ -6,17 +6,19 @@
 /*   By: kryrodri <kryrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 17:22:05 by kryrodri          #+#    #+#             */
-/*   Updated: 2023/05/04 17:43:55 by kryrodri         ###   ########.fr       */
+/*   Updated: 2023/05/16 14:11:43 by kryrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isascii(int c)
+#include "libft.h"
+
+int	ft_isascii(int c)
 {
-    if (c < 0 || c > 127)
-    {
-        return (0);
-    }
-    return (1);
+	if (c < 0 || c > 127)
+	{
+		return (0);
+	}
+	return (1);
 }
 // #include <stdio.h>
 // int main(void)

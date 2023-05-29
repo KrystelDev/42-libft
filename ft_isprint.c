@@ -6,11 +6,13 @@
 /*   By: kryrodri <kryrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:25:01 by kryrodri          #+#    #+#             */
-/*   Updated: 2023/05/04 17:47:37 by kryrodri         ###   ########.fr       */
+/*   Updated: 2023/05/16 14:11:52 by kryrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isprint(int c)
+#include "libft.h"
+
+int	ft_isprint(int c)
 {
 	int	result;
 	int	i;
@@ -18,10 +20,7 @@ int ft_isprint(int c)
 	i = 0;
 	result = 1;
 	if (c < ' ' || c > '~')
-	{
 		result = 0;
-		return (result);
-	}
 	return (result);
 }
 // #include <stdio.h>

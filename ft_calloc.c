@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kryrodri <kryrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/04 14:29:43 by kryrodri          #+#    #+#             */
-/*   Updated: 2023/05/15 12:12:59 by kryrodri         ###   ########.fr       */
+/*   Created: 2023/05/17 16:50:10 by kryrodri          #+#    #+#             */
+/*   Updated: 2023/05/25 17:53:06 by kryrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// #include "ft_bzero.c"
 #include "libft.h"
 
-int	ft_isalnum(int c)
+void	*ft_calloc(size_t num_elements, size_t element_size)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (1);
-	return (0);
-}
+	char	*copia_cpy;
 
-// #include "ft_isalpha.c"
-// #include "ft_isdigit.c"
-// int	ft_isalnum(int c )
-// {
-// 	if ((c < '0' || c > '9') && ((c < 'A' || c > 'Z') && (c < 'a' || c > 'z')))
-// 		return (0);
-// 	return (1);
-// }
-// #include <stdio.h>
-// int main(void)
-// {
-// 	printf("a: %d", ft_isalnum('a'));
-// 	return (0);
-// }
+	copia_cpy = malloc(num_elements * element_size);
+	if (copia_cpy == NULL)
+	{
+		return (NULL);
+	}
+	ft_bzero(copia_cpy, num_elements * element_size);
+	return (copia_cpy);
+}
