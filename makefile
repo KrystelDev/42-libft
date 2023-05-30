@@ -6,7 +6,7 @@
 #    By: kryrodri <kryrodri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 11:09:46 by kryrodri          #+#    #+#              #
-#    Updated: 2023/05/26 20:03:24 by kryrodri         ###   ########.fr        #
+#    Updated: 2023/05/30 10:18:55 by kryrodri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,9 @@ FUNCTION	=  ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c  ft_isprint.c \
 # Tenemos que transformar los .c en .o para poder compilar
 OBJS	= $(FUNCTION:.c=.o)
 
+# La libreria
+HEADER	= libft.h
+
 # Se compila el archivo binario (ejecutable).
 all: ${NAME}
 
@@ -38,7 +41,7 @@ all: ${NAME}
 # 	$(CC) $(FLAGS) main.c ${OBJS} -o ${NAME}
 
 # Si no tuvieramos main.c usariamos el ar rcs en su lugar.
-${NAME}: ${OBJS}
+${NAME}: ${OBJS} ${HEADER}
 	@echo "Generando la libreria ${NAME}..."
 	ar rcs $(NAME) ${OBJS}
 
