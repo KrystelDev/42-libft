@@ -6,7 +6,7 @@
 /*   By: kryrodri <kryrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:39:16 by kryrodri          #+#    #+#             */
-/*   Updated: 2023/05/25 15:16:20 by kryrodri         ###   ########.fr       */
+/*   Updated: 2023/05/30 16:40:32 by kryrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // #include "ft_strdup.c"
 #include "libft.h"
 
-int	static_ft_nbrlen(int n)
+static int	ft_nbrlen(int n)
 {
 	int	len;
 
@@ -40,10 +40,10 @@ char	*ft_itoa(int n)
 
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
-	itoa = ft_calloc(static_ft_nbrlen(n) + 1, sizeof(char));
+	itoa = ft_calloc(ft_nbrlen(n) + 1, sizeof(char));
 	if (!itoa)
 		return (NULL);
-	i = static_ft_nbrlen(n) - 1;
+	i = ft_nbrlen(n) - 1;
 	if (n < 0)
 	{
 		itoa[0] = '-';
@@ -57,30 +57,20 @@ char	*ft_itoa(int n)
 	itoa[i] = (n % 10 + '0');
 	return (itoa);
 }
-// 51 Copia la cadena "-2147483648" a la variable itoa
-// 64 A partir de aquí encontrar los numeros.
-// 68 Como encuentro primero la unidades, 
-// despues las decentas etc.. necesito darle la vuelta
+// 42 Control exepción "-2147483648"
+// 43 Al saber el tamanno de digitos, puedo pedir memoria
+// 54 A partir de aquí encontrar los numeros.
+// 54 Como encuentro primero la unidades, 
+// despues las decentas etc.. necesito ir de atrás adelante.
 // #include <stdio.h>
 // int main (void)
 // {
-// 	char *result = ft_itoa(374);
+// 	char *result = ft_itoa(-2147483648);
+//  	printf("%s\n", result);
+// 	result = ft_itoa(2147483647);
+//  	printf("%s\n", result);
+// 	result = ft_itoa(0);
 //  	printf("%s\n", result);
 // 	free(result);
-	// char *result = ft_itoa(-21);
-	// printf("%s\n", ft_itoa(-21));
-	// free(result);
-	// result = ft_itoa(21);
-	// printf("%s\n", result);
-	// free(result);
-	// result = ft_itoa(-4);
-	// printf("%s\n", result);
-	// free(result);
-	// result = ft_itoa(0);
-	// printf("%s\n", result);
-	// free(result);
-	// result = ft_itoa(-2147483648);
-	// printf("%s\n", result);
-	// free(result);
-//  return (0);
+// 	return (0);
 // }

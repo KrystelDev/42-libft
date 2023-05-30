@@ -6,7 +6,7 @@
 /*   By: kryrodri <kryrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 10:19:18 by kryrodri          #+#    #+#             */
-/*   Updated: 2023/05/23 15:31:02 by kryrodri         ###   ########.fr       */
+/*   Updated: 2023/05/30 15:36:04 by kryrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,21 @@ char	*ft_strdup(char *s)
 	return (copia_cpy);
 }
 
-// int main (void)
+// int main()
 // {
-// 	char *str;
-//  	char *tmp = "I malloc so I am.";
-// 	printf("tmp: %s\n", tmp);
-//  	str = ft_strdup(tmp);
-// 	printf("str: %s\n", str);
-//  	if (strcmp(str, tmp))
-//  		printf("TEST_FAILED\n");
-// 	else
-// 		printf("TEST_SUCCESS\n");
-//  	free(str);
-// 	return(0);
+// 	char *original = "Hola, mundo!";
+// 	char *copia;
+// 	// Usando ft_strdup para duplicar la cadena original
+// 	copia = ft_strdup(original);
+// 	if (copia == NULL)
+// 	{
+// 		printf("Error: No se pudo asignar memoria.\n");
+// 		return 1;
+// 	}
+// 	// Imprimir la cadena original y la copia
+// 	printf("Cadena original: %s\n", original);
+// 	printf("Copia: %s\n", copia);
+// 	// Liberar la memoria asignada
+// 	free(copia);
+// 	return 0;
 // }

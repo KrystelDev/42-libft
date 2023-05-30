@@ -6,7 +6,7 @@
 /*   By: kryrodri <kryrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 17:57:58 by kryrodri          #+#    #+#             */
-/*   Updated: 2023/05/05 16:19:58 by kryrodri         ###   ########.fr       */
+/*   Updated: 2023/05/30 13:23:10 by kryrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	char	*str;
 	size_t	i;
 
-	str = (char *)s;
 	i = 0;
 	while (i < n)
 	{
-		str[i] = c;
+		((char *)s)[i] = c;
 		i++;
 	}
 	return (s);
 }
 
+// 39 se hace este casteo para poder sobreescribir
+//	permite el acceso a nivel de byte dentro del bloque de memoria.
 // #include <string.h>
 // int main()
 // {

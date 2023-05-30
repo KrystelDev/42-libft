@@ -6,14 +6,14 @@
 /*   By: kryrodri <kryrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 18:24:51 by kryrodri          #+#    #+#             */
-/*   Updated: 2023/05/30 10:35:35 by kryrodri         ###   ########.fr       */
+/*   Updated: 2023/05/30 16:40:35 by kryrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <string.h>
 
-int	static_q_palabras(char const *s, char c)
+static int	q_palabras(char const *s, char c)
 {
 	size_t	i;
 	int		count;
@@ -36,7 +36,7 @@ int	static_q_palabras(char const *s, char c)
 	return (count);
 }
 
-size_t	static_ft_strlen(char const *s, char c)
+static size_t	ft_paraula_len(char const *s, char c)
 {
 	size_t	i;
 
@@ -52,7 +52,7 @@ size_t	static_ft_strlen(char const *s, char c)
 	return (ft_strlen(s));
 }
 
-void	static_ft_clean(char **split, size_t q_palabras)
+static void	ft_clean(char **split, size_t q_palabras)
 {
 	while (q_palabras > 0)
 	{
@@ -64,37 +64,46 @@ void	static_ft_clean(char **split, size_t q_palabras)
 
 char	**ft_split(char const *s, char c)
 {
-	int		q_palabras;
+	int		palabra;
 	char	**split;
 
-	split = (char **)ft_calloc(static_q_palabras(s, c) + 1, sizeof(char *));
+	split = (char **)ft_calloc(q_palabras(s, c) + 1, sizeof(char *));
 	if (!split)
 		return (NULL);
-	q_palabras = 0;
+	palabra = 0;
 	while (*s)
 	{
 		if (*s != c && *s != '\0')
 		{
-			split[q_palabras] = ft_substr(s, 0, static_ft_strlen(s, c));
-			if (split[q_palabras] == NULL)
+			split[palabra] = ft_substr(s, 0, ft_paraula_len(s, c));
+			if (split[palabra] == NULL)
 			{
-				static_ft_clean(split, q_palabras);
+				ft_clean(split, palabra);
 				return (NULL);
 			}
-			s = s + static_ft_strlen(s, c) - 1;
-			q_palabras++;
+			s = s + ft_paraula_len(s, c) - 1;
+			palabra++;
 		}
 		s++;
 	}
 	return (split);
 }
 
-// int	main(void)
+// int main()
 // {
-// 	printf(">hello!..\n");
-// 	ft_split("hello!", ' ');
-// 	split("hello!", ' ');
-// 	return(0);
+// 	char *s = "Hola,patata,donnetes,berenjena,.";
+// 	char **result;
+// 	result = ft_split(s, ',');
+// 	if (result == NULL)
+// 		return 1;
+// 	// Imprimir las palabras resultantes
+// 	printf("Palabras resultantes:\n");
+// 	size_t i = 0;
+// 	while (result[i] != NULL)
+// 		printf("%s\n", result[i++]);
+// 	// Liberar la memoria asignada
+// 	ft_clean(result, 5);
+// 	return 0;
 // }
 // 71 Reservo memoria necesaria del Array de palabras
 // 74 Empezamos en cero (principio de primera palabra)

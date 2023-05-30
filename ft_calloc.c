@@ -6,7 +6,7 @@
 /*   By: kryrodri <kryrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 16:50:10 by kryrodri          #+#    #+#             */
-/*   Updated: 2023/05/25 17:53:06 by kryrodri         ###   ########.fr       */
+/*   Updated: 2023/05/30 15:29:21 by kryrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,23 @@ void	*ft_calloc(size_t num_elements, size_t element_size)
 	ft_bzero(copia_cpy, num_elements * element_size);
 	return (copia_cpy);
 }
+
+// int main()
+// {
+// 	int *numbers;
+// 	int num_elements = 5;
+// 	numbers = (int*)ft_calloc(num_elements, sizeof(int));
+// 	if (numbers == NULL)
+// 	{
+// 		printf("Error: No se pudo asignar memoria.\n");
+// 		return (1);
+// 	}
+// 	// Imprimir cada elemento
+// 	printf("Números asignados: ");
+// 	int i = 0;
+// 	while (i++ < num_elements)
+// 		printf("%d ", numbers[i]);
+// 	// Liberar la memoria asignada
+// 	free(numbers);
+// 	return 0;
+// }

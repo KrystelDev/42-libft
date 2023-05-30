@@ -6,7 +6,7 @@
 /*   By: kryrodri <kryrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 12:51:45 by kryrodri          #+#    #+#             */
-/*   Updated: 2023/05/19 13:25:29 by kryrodri         ###   ########.fr       */
+/*   Updated: 2023/05/30 15:45:03 by kryrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,22 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_strlcat(new_string, s2, ft_strlen(s1) + ft_strlen(s2) + 1);
 	return (new_string);
 }
+
+// int main()
+// {
+// 	char *s1 = "Hello, ";
+// 	char *s2 = "world!";
+// 	char *result;
+// 	// Usando ft_strjoin para concatenar las cadenas s1 y s2
+// 	result = ft_strjoin(s1, s2);
+// 	if (result == NULL)
+// 	{
+// 		printf("Error: No se pudo asignar memoria.\n");
+// 		return 1;
+// 	}
+// 	// Imprimir el resultado de la concatenación
+// 	printf("Resultado: %s\n", result);
+// 	// Liberar la memoria asignada
+// 	free(result);
+// 	return 0;
+// }
