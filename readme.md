@@ -25,10 +25,10 @@ Se deben implementar solo las siguientes funciones:
 |strlcat| Concatena una cadena de origen al final de una cadena de destino con un tamaño máximo especificado. |
 |ft_striteri| A cada carácter de la string ’s’, aplica la función ’f’ dando como parámetros el índice de cada carácter dentro de ’s’ y la dirección del propio carácter, que podrá modificarse si es necesario.|
 
-| Función  | Realiza operaciones de memoria y maneja violaciones de restricciones de tiempo de ejecución.		|
+| Función  | Realiza operaciones de memoria		|
 |-------|-----------------------------------------------------------------------------------|
-|memset| Llena el bloque de memoria apuntado por el char* con el valor de int en los siguientes size_t bytes.|
-|bzero| Llena el bloque de memoria apuntado por el char* con '\0' en los siguientes size_t bytes.|
+|memset| Llena el bloque de memoria del char* con el valor de int en los siguientes size_t bytes.|
+|bzero| Llena el bloque de memoria del char* con '\0' en los siguientes size_t bytes.|
 |memcpy| Copia un bloque de memoria de una ubicación a otra.|
 |memmove| Realiza una copia de un bloque de memoria, incluso si los bloques se superponen.|
 |memchr| Devuelve el puntero donde encuentra ese chr por primera vez, como máximo mirará hasta la cantidad del tercer parametro recibido.|
@@ -44,7 +44,7 @@ Se deben implementar solo las siguientes funciones:
 | Función  | Usan mallloc()			 				 			|
 |-------|-----------------------------------------------------------------------------------|
 |calloc| Asigna memoria para una matriz de nmemb elementos de size bytes cada uno y devuelve un puntero a la memoria asignada. La memoria es puesta a cero.|
-|strdup| Asigna memoria dinámicamente y copiando el contenido de la cadena original a la nueva cadena duplicada.
+|strdup| Asigna memoria y copia el contenido de la cadena original a la nueva cadena duplicada.
 |ft_substr|  Devuelve una parte del string definida por los parámetros start y length.|
 |ft_strjoin| Devuelve una nueva string, formada por la concatenación de ’s1’ y ’s2’.|
 |ft_strtrim| Elimina todos los caracteres de la string ’set’ desde el principio y desde el final de ’s1’, hasta encontrar un caracter no perteneciente a ’set’.|
